@@ -1,0 +1,30 @@
+package com.beans;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class BoardDAO {
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+	DataBaseCon D;
+	
+	public BoardDAO() {
+		try {
+			Class.forName(D.DRIVER);
+			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void close() throws SQLException {
+		if (rs != null) rs.close();
+		if (pstmt != null) pstmt.close();
+		if (conn != null) conn.close();
+	}
+}
+

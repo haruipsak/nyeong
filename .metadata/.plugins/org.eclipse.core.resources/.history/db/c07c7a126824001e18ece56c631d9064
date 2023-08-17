@@ -1,0 +1,101 @@
+package project;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CatfoodDAO {
+		Connection conn = null;
+		PreparedStatement pstmt;
+		
+		final String JDBC_DRIVER = "org.h2.Driver";
+		final String JDBC_URL = "jdbc:h2:tcp://localhost/~/pt";
+
+		public Connection open() {
+			try {
+				Class.forName(JDBC_DRIVER);
+				conn = DriverManager.getConnection(JDBC_URL, null, null);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	return conn;
+		}
+		public void close() {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public List<Catfood> getAll(){
+			open();
+			List<Catfood> catfood = new ArrayList<>();
+			
+			try {
+				pstmt = conn.prepareStatement("select * from student");
+				ResultSet rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					Catfood c = new Catfood();
+					c.setCatfoodname(rs.getString("catfoodname"));
+					c.setGrainfree(rs.getInt("carbo"));
+					c.setFirst(rs.getString("first"));
+					c.setCarbo(rs.getInt("protein"));
+					c.setProtein(rs.getInt("protein"));
+					c.setFat(rs.getInt("fat"));
+					c.setFiber(rs.getInt("fiber"));
+					c.setCarbo(rs.getInt("ca"));
+					c.setP(rs.getInt("p"));
+					c.setGrade(rs.getInt("grade"));
+					
+					catfood.add(c);
+				}
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+ 			return catfood;
+			
+		}
+		public Catfood getCatfood(String catfoodname) throws SQLException{
+			Connection conn = open();
+			
+			Catfood c = new Catfood();
+			String sql = "select catfoodname, grainfree, first, carbo, protein, fat, fiber, ca, p, grade from nyeong where carfoodname=?";
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			try(conn; pstmt; rs) {
+				c.setCatfoodname(rs.getString("catfoodname"));
+				c.setGrainfree(rs.getInt("carbo"));
+				c.setFirst(rs.getString("first"));
+				c.setCarbo(rs.getInt("protein"));
+				c.setProtein(rs.getInt("protein"));
+				c.setFat(rs.getInt("fat"));
+				c.setFiber(rs.getInt("fiber"));
+				c.setCarbo(rs.getInt("ca"));
+				c.setP(rs.getInt("p"));
+				c.setGrade(rs.getInt("grade"));
+				
+				pstmt.executeQuery();
+				
+				return c;
+		}
+		
+		
+		}
+}

@@ -1,0 +1,73 @@
+package com.beans;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BoardDAO {
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+
+	public BoardDAO() {
+		try {
+			Class.forName(DataBaseCon.DRIVER);
+			conn = DriverManager.getConnection(DataBaseCon.URL);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void close() throws SQLException {
+		if (rs != null) rs.close();
+		if (pstmt != null) pstmt.close();
+		if (conn != null) conn.close();
+	}
+
+	private List<BoardDTO> buildList(ResultSet rs) throws SQLException {
+		List<BoardDTO> list = new ArrayList<>();
+
+		while (rs.next()) {
+			int uid = rs.getInt("num");
+			String title = rs.getString("title");
+			String summary = rs.getString("summary");
+			if (summary == null)
+				summary = "";
+			int price = rs.getInt("price");
+			int viewCnt = rs.getInt("viewcnt");
+			Date regDate = rs.getDate("regdate");
+
+			BoardDTO dto = new BoardDTO(name, subject, content, hitcount, date, regDate);
+			list.add(dto);
+		}
+		
+		
+		num;
+		 private String name;
+		 private String subject;
+		 private String content;
+		 private int hitcount;
+		 private Date date;
+		return list;
+	}
+
+	public List<BookDTO> select() throws SQLException {
+		List<BookDTO> list = null;
+
+		try {
+			pstmt = conn.prepareStatement(D.SQL_BOOK_SELECT);
+			rs = pstmt.executeQuery();
+			list = buildList(rs);
+		} finally {
+			close();
+		}
+		return list;
+	}
+	}
+}
+

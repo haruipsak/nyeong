@@ -1,0 +1,12 @@
+package com.beans;
+
+import java.sql.Date;
+
+public class BookDTO {
+	 private int num;
+	 private String name;
+	 private String subject;
+	 private String content;
+	 private int hitcount;
+	 private Date date;
+}

@@ -1,0 +1,14 @@
+package project;
+
+
+public class Catfood {
+	private String catfoodname;
+	private int grainfree;
+	private String first;
+	private int carbo;
+	private int protein;
+	private int fat;
+	private int fiber;
+	private int p;
+	private int grade;
+}

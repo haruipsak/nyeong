@@ -1,0 +1,23 @@
+package project;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Search {
+	private Connection conn;//데이터베이스에 접근하게 해주는 하나의 객체
+	private ResultSet rs;
+	
+	public Search() {
+			try {//예외처리
+			String dbURL = "jdbc:h2:tcp://localhost/~/pt";
+			Class.forName("org.h2.Driver");//mysql드라이버를 찾는다.
+			//드라이버는 mysql에 접속할 수 있도록 매개체 역할을 하는 하나의 라이브러리
+			conn=DriverManager.getConnection(dbURL);
+			conn=DriverManager.getConnection(dbURL);
+		   }catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,8 @@
+package com.beans;
+
+public class BoardDAO {
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+	
+}

@@ -1,0 +1,78 @@
+package project;
+
+public class Cat {
+		private String catfoodname;
+		private int grainfree;
+		private String first;
+		private double carbo;
+		private double protein;
+		private double fat;
+		private double fiber;
+		private double ca;
+		private double p;
+		private int grade;
+		public String getCatfoodname() {
+			return catfoodname;
+		}
+		public void setCatfoodname(String catfoodname) {
+			this.catfoodname = catfoodname;
+		}
+		public int getGrainfree() {
+			return grainfree;
+		}
+		public void setGrainfree(int grainfree) {
+			this.grainfree = grainfree;
+		}
+		public String getFirst() {
+			return first;
+		}
+		public void setFirst(String first) {
+			this.first = first;
+		}
+		public int getCarbo() {
+			return carbo;
+		}
+		public void setCarbo(int carbo) {
+			this.carbo = carbo;
+		}
+		public int getProtein() {
+			return protein;
+		}
+		public void setProtein(int protein) {
+			this.protein = protein;
+		}
+		public int getFat() {
+			return fat;
+		}
+		public void setFat(int fat) {
+			this.fat = fat;
+		}
+		public int getFiber() {
+			return fiber;
+		}
+		public void setFiber(int fiber) {
+			this.fiber = fiber;
+		}
+		public int getCa() {
+			return ca;
+		}
+		public void setCa(int ca) {
+			this.ca = ca;
+		}
+		public int getP() {
+			return p;
+		}
+		public void setP(int p) {
+			this.p = p;
+		}
+		public int getGrade() {
+			return grade;
+		}
+		public void setGrade(int grade) {
+			this.grade = grade;
+		}
+		
+		
+		
+		
+}

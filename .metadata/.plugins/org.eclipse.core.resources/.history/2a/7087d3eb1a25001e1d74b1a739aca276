@@ -1,0 +1,13 @@
+package project;
+
+//DB는 여러 개 연결 가능함.
+
+public class DataBaseCon {
+	public String jdbcDriver = "jdbc:h2:tcp://localhost/~/pt"
+	public static final String URL = "jdbc:mysql://localhost:3306/boards";
+
+	public static final String SQL_WRITE_INSERT = 
+			"INSERT INTO book"
+					+ "(bk_title, bk_summary, bk_price)"
+					+ "VALUES(?, ?, ?)";
+}

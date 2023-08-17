@@ -1,0 +1,10 @@
+package project;
+
+public class BoardDTO {
+ private int num;
+ private String name;
+ private String subject;
+ private String content;
+ private int hitcount;
+ private Date date;
+}

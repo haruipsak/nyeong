@@ -1,0 +1,83 @@
+package com.beans;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class BoardDTO {
+
+	 private int num;
+	 private String name;
+	 private String subject;
+	 private String content;
+	 private int hitcount;
+	 private Date date;
+
+	public BoardDTO() {
+		super();
+	}
+
+	public BoardDTO(int num, String name, String subject, int content, int hitcount, Date date) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.subject = subject;
+		this.content = content;
+		this.hitcount = hitcount;
+		this.date = date;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getViewCnt() {
+		return viewCnt;
+	}
+
+	public void setViewCnt(int viewCnt) {
+		this.viewCnt = viewCnt;
+	}
+
+	public LocalDateTime getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(LocalDateTime regDate) {
+		this.regDate = regDate;
+	}
+	
+	public String getRegDateTime() {
+		if (this.regDate == null) return "";
+		return this.regDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
+	}
+
+}

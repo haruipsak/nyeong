@@ -1,0 +1,77 @@
+package project;
+
+
+
+public class BoardDTO {
+
+	 private int num;
+	 private String name;
+	 private String subject;
+	 private String content;
+	 private int hitcount;
+	 private String date;
+
+	public BoardDTO() {
+		super();
+	}
+
+	public BoardDTO(int num, String name, String subject, String content, int hitcount, String date) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.subject = subject;
+		this.content = content;
+		this.hitcount = hitcount;
+		this.date = date;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public int getHitcount() {
+		return hitcount;
+	}
+
+	public void setHitcount(int hitcount) {
+		this.hitcount = hitcount;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+}

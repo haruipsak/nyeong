@@ -1,5 +1,0 @@
-package com.commend;
-
-public interface BoardCommend {
-
-}
